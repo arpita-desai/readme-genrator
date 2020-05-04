@@ -1,10 +1,10 @@
-function generateHTML(data){
-    return `
-    # Project Title: ${response.projectName}
+// function generateHTML(data){
+//     return `
+//     # Project Title: ${response.projectName}
 
-    `;
-}
+//     `;
+// }
 
-generateHTML();
+//generateHTML();
 
-module.exports = generateHTML;
+//module.exports = generateHTML;

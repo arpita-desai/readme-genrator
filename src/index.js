@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 let fs = require('fs');
 let axios = require('axios');
-let generateHTML = require('generateHTML.js');
+//let generateHTML = require('generateHTML.js');
 let path = require('path');
 
 inquirer
@@ -64,7 +64,7 @@ inquirer
     // })
 });
 
-function writeToFile (filename, data){
-    fs.writeFileSync("Readme.md",response)
+// function writeToFile (filename, data){
+//     fs.writeFileSync("Readme.md",response)
 
-}
+// }
