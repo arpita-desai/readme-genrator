@@ -1,11 +1,9 @@
 const inquirer = require('inquirer');
-let fs = require('fs');
-let axios = require('axios');
-//let generateHTML = require('generateHTML.js');
-let path = require('path');
+const { writeFileSync } = require('fs');
+let generateHTML = require('./generateHTML.js');
+const path = require('path');
 
-inquirer
-.prompt([
+const userData = [
     {
         type: "input",
         message: "What is your Github Username?",
@@ -36,35 +34,33 @@ inquirer
         message: "What kind of license your project want?",
         name: "license",
         choices: ["MIT",
-         "Apache 2.0", 
-         "BSD 3", 
-         "GPL 3.0", 
+         "Apache", 
+         "BSD", 
+         "GPL", 
          "None"]
     },
-])
-.then(response => {
+    {
+        type: "input",
+        message: "What will need to install dependencies?",
+        name: "install",
+        default: "npm install",
+    },
+];
 
-    let data = `Name: ${response.username}, email:  ${response.email}, Project URL: ${response.projectUrl}`;
-    //"Name: " + response.username + " email " + response.email + " Project URL " + response.projectUrl
-    
-    console.log(data);
-    fs.appendFile("Readme.md", JSON.stringify(data), function(err){
-        if(err){
-            return console.log("error");
-        }else{
-            console.log("success");
-        }
+
+   
+
+
+function writeToReadme(filename, data){
+    const currentPath = process.cwd();
+    return writeFileSync(path.join(currentPath, filename),data);
+
+}
+
+
+function init(){
+    inquirer.prompt(userData).then(function(response){
+        writeToReadme("Readme.md", generateHTML({ ...response }))
     });
-
-    // const queryUrl = `https://api.github.com/users/${response.username}`;
-    // axios
-    // .get(queryUrl)
-    // .then(res => {
-    //     const data = res.data;
-    // })
-});
-
-// function writeToFile (filename, data){
-//     fs.writeFileSync("Readme.md",response)
-
-// }
+}
+init();

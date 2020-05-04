@@ -1,10 +1,27 @@
-// function generateHTML(data){
-//     return `
-//     # Project Title: ${response.projectName}
+function generateHTML(data){
+    return `
+    # Project Title: ${data.projectTitle}
 
-//     `;
-// }
+    ## Description 
+    ${data.description}
 
-//generateHTML();
+    ## Table Of Contents
 
-//module.exports = generateHTML;
+    * [Installation](#installation)
+    * [License](#license)
+    * [Project URL](#projecturl)
+    
+    ### Installation
+    ${data.install}
+
+    ### License
+    ${data.license}
+
+    ### Project URL
+    ${data.projectUrl}
+    `;
+}
+
+
+
+module.exports = generateHTML;
