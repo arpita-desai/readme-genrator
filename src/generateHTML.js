@@ -10,6 +10,8 @@ function generateHTML(data){
     * [Installation](#installation)
     * [License](#license)
     * [Project URL](#projecturl)
+    * [Usage](#usage)
+    * [Test](#test)
     
     ### Installation
     ${data.install}
@@ -19,6 +21,15 @@ function generateHTML(data){
 
     ### Project URL
     ${data.projectUrl}
+
+    ### Usage
+    Usage of the project is to generate readme.md file dynamically.
+
+    ### Test
+    ${data.test}
+
+    ## Question
+    If do you have any query email on: ${data.email}
     `;
 }
 

@@ -45,18 +45,19 @@ const userData = [
         name: "install",
         default: "npm install",
     },
+    {
+        type: "input",
+        message: "How can test project?",
+        name: "test",
+        default: "npm test",
+    }
 ];
-
-
-   
-
 
 function writeToReadme(filename, data){
     const currentPath = process.cwd();
     return writeFileSync(path.join(currentPath, filename),data);
 
 }
-
 
 function init(){
     inquirer.prompt(userData).then(function(response){
