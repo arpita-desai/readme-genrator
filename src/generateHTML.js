@@ -1,6 +1,6 @@
 function generateHTML(data){
     return `
-    # Project Title: ${data.projectTitle}
+    # Project Title: ${data.projectName}
 
     ## Description 
     ${data.description}
